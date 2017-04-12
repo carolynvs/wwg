@@ -1,9 +1,12 @@
+---
+---
+
 # Women Who Go - Chicago Chapter
 
 * [Meetup](https://www.meetup.com/Women-Who-Go-Chicago/)
 * [Twitter](https://twitter.com/womenwhogo_chi)
 
-<img src="images/womenwhogo-riveter.jpg" align="right" alt="Rosie the Riveter Gopher" width="50%" />
+<img src="images/womenwhogo-riveter.jpg" align="right" alt="Rosie the Riveter Gopher" width="250em" />
 
 This is the Chicago Chapter of [Women Who Go](http://www.womenwhogo.org).
 

@@ -1,3 +1,5 @@
+---
+---
 ### 1. Install Golang itself
 - [Golang Downloads](https://golang.org/dl/)
 - Windows
@@ -80,7 +82,7 @@ sudo yum install code
 - [Go plugin](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go)
 >  Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
 > `ext install Go`
-> This will pull up a selection menu of packages you  can install, choose "Go" by lukehoban 
+> This will pull up a selection menu of packages you  can install, choose "Go" by lukehoban
 
 The Go plugin gives easy support for code code highlighting and for running test suites, but it doesn't provide a simple "run my code snippet". Since we want that for some easy early iterating, let's also install Code Runner.
 
