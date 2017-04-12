@@ -93,7 +93,7 @@ sudo yum install code
 
 >  Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
 > `ext install Go`
-> This will pull up a selection menu of packages you  can install, choose "Go" by lukehoban 
+> This will pull up a selection menu of packages you  can install, choose "Go" by lukehoban
 
 The Go plugin gives easy support for code code highlighting and for running test suites, but it doesn't provide a simple "run my code snippet". Since we want that for some easy early iterating, let's also install Code Runner.
 
@@ -108,13 +108,13 @@ Code Runner gives us a simple in-editor script runner. It works for a fairly lar
 
 ## 4. Writing Helloworld app
 ### Setting up your workspace
-The GoPath is imortant for downloads & binaries, less so for writing up some code. Let's dig into that!
-1. Make a folder named "hello"
-2. Inside of the folder, make "main.go" and paste in the file contents
-3. Open folder in VS Code via the menus with "File > Open Folder" or `ctrl-k ctrl-o`
-4. Use `ctrl-[Backtick]` to open the VS code terminal to run commands below
-5. For this exercise, using your GOPATH shouldn't matter, code can be edited outside of the GOPATH (E.G. when checkout of source control) but it will be used by Go automatically for commands like `go get` and `go install`
 
+1. Create a folder named `hello`.
+2. Inside of the folder, create `main.go` and paste in the file contents below.
+3. Open folder in VS Code via the menus with **File > Open Folder** or **ctrl-k ctrl-o**.
+4. Use **ctrl-\`** to open the VS code terminal to run commands below. _The backtick key is left of the 1 key._
+
+NOTE: For this exercise, using your GOPATH shouldn't matter. However, having your source code located under the GOPATH is important for the commands such as `go get` and `go install`.
 
 ### Writing main.go
 ```go
@@ -123,23 +123,148 @@ package main
 import "fmt"
 
 func main() {
-    fmt.Printf("hello, world\n")
+    fmt.Println("Hello World!")
 }
 ```
 
+### Ways to run your program
+Run directly in VS Code:
 
-### Other ways to run it
-Run in VS Code
-1. `ctrl-alt-j`
-2. Select go, this may kick off an initial run
-3. Re-run code after modifying with `ctrl-alt-n`
+1. Press `ctrl-alt-j`.
+2. Select the "go" programming language.
+3. Re-run code after modifying with `ctrl-alt-n`.
 
-Run manually
+Run manually:
 ```bash
 go run main.go
 ```
 
-Compile a binary
+Compile and run a binary:
 ```bash
-go build && hello
+go build
+./hello
 ```
+
+## 5. Basic Go Syntax
+
+Let's get familiar with go syntax!
+
+### Declare Variables
+
+```go
+// Declare a variable for later
+var x int
+
+// Declare and assign immediately
+var x int = 1
+
+// Declare multiple variables at once!
+var x, y int
+```
+
+### Types
+There are lots of types:
+
+* int
+* string
+* bool
+* []string - Array of strings
+* map[string]string - Dictionary or Map of string => string
+
+### Assign Variables
+
+```go
+// Declare and assign, this is the most common usage
+x := 1
+
+// Assign multiple variables
+x, y := DoSomething()
+```
+
+### Importing packages
+There are many built-in packages, `fmt` lets you write to the console.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, playground")
+}
+```
+
+### Arrays and Slices
+* Arrays have a fixed length.
+* Slices are similar to vectors or lists in other languages. Use these.
+
+```go
+colors := []string{"red", "blue"}
+
+// range returns two variables: index and item
+for i, color := range colors {
+  fmt.Printf("[%d] = %s\n", i, color)
+}
+
+// You can ignore the index with an underscore
+for _, color := range colors {
+  fmt.Println(color)
+}
+
+// You can also directly index the elements in the array/slice
+for i:=0; i < len(colors); i++ {
+  color := colors[i]
+  fmt.Println(color)
+}
+```
+
+### Maps
+
+```go
+colors := map[string]string {
+  "red": "FF0000",
+  "blue": "0000FF",
+  "green": "00FF00",
+}
+
+// range returns two values: key and value
+for color, hex := range colors {
+  fmt.Printf("[%s] = %s\n", color, hex)
+}
+```
+
+### Functions
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	x, y := GetStartingCoordinates()
+	fmt.Printf("Starting at (%d, %d)\n", x, y)
+
+	if IsDone() {
+		SaySomething("All Done!")
+	}
+}
+
+// This function doesn't return anything
+func SaySomething(message string) {
+  fmt.Println(message)
+}
+
+// This function returns a boolean value
+func IsDone() bool {
+  return true
+}
+
+// This function returns multiple values
+func GetStartingCoordinates() (int, int) {
+  return 0, 0
+}
+```
+
+For more go adventures, follow the [Go Tour](https://tour.golang.org/list)!
