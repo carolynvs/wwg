@@ -18,3 +18,4 @@ or enjoy talking to strangers in order to come hang out with us!
 ## Workshops
 
 * [Getting Started with Go](workshops/getting-started/)
+* [Gopher Telephone](workshops/telephone/)
