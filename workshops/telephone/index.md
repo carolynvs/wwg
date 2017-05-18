@@ -1,6 +1,6 @@
 # Gopher Telephone
 
-![rainbow sparkles gopher](/images/rainbow-sparkles-gopher.png)
+![rainbow sparkles gopher]({{site.baseurl}}/images/rainbow-sparkles-gopher.png)
 
 ## Rules
 * All gophers get in a line.
