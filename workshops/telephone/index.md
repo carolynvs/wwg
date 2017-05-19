@@ -28,7 +28,8 @@ If every gopher faithfully repeats the message, then the game isn't terribly fun
 
 ```
 go get -u github.com/ladygogo/telephone
-cd $GOPATH/github.com/ladygogo/telephone
+cd ${GOPATH:-~/go}
+cd src/github.com/ladygogo/telephone
 go build
 ```
 
