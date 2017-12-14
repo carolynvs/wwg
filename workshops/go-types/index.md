@@ -42,7 +42,7 @@ ___
 
 # Point Type
 
-Let's make a type called point
+Let's make a type called point:
 
 ```go
 type point struct {
@@ -51,6 +51,8 @@ type point struct {
 ```
 
 Now change the distance function to use points.
+
+Solution: https://play.golang.org/p/9GeZBIMIQr
 
 # To OOP or not to OOP
 
@@ -82,6 +84,7 @@ We can define a structure to hold data, and provide associated functions to work
 ## Move Function
 Now let's make a function that modifies our point:
 
+https://play.golang.org/p/4wKbaIlLXV
 ```go
 func (p point) Move(dx, dy float64) {
   p.x += dx
@@ -121,6 +124,8 @@ tldr: if you want to modify the struct, the receiver should be a pointer
 # Circle
 
 Let's make another type:
+
+https://play.golang.org/p/UUAw1OV5dM
 ```go
 type circle struct {
   x,y float64
@@ -142,8 +147,9 @@ Anyone else thing this is a bit copy/paste?
 ---
 
 ## Composition
-go doesn't have inheritance, but I can compose a type using other types
+Go doesn't have inheritance, but I can compose a type using other types:
 
+https://play.golang.org/p/WHPPNw7Vko
 ```
 type circle struct {
   *point
@@ -156,6 +162,8 @@ func main() {
   fmt.Printf("%#v")
 }
 ```
+
+---
 
 ## Ah! Pointers!
 
@@ -170,6 +178,7 @@ We have a few options:
 
 OK! Now let's make _more_ types!
 
+https://play.golang.org/p/AU0uefP7Qp
 ```go
 type line struct {
   start, stop point
@@ -190,6 +199,7 @@ func (l *line) Move(dx, dy float64) {
 # Interfaces
 What if I want to be able to move anything? 🤔
 
+https://play.golang.org/p/A87Ytz8jAa
 ```go
 type shape interface {
   Move(dx, dy float64)
@@ -209,17 +219,18 @@ s.Move(2,2)
 ```
 
 _Why did I use pointers for point and line?_ 🤔
-Best Practice: Assign pointers to interface varibles, because most things you implement will be mutable, and will have pointer recivers.
+**Tip**: Assign pointers to interface varibles, because most things you implement will be mutable, and will have pointer recivers.
 
 ...
 
-Yes, Go is very silly. 😆
+Yes, Go is _very_ silly. 😆
 
 ---
 
 # Built-in Interfaces
 Here's a very useful interface: `fmt.Stringer`
 
+https://play.golang.org/p/7eaXTE5FjE
 ```go
 func (p point) String() string {
   return fmt.Printf("(%s, %s)", p.x, p.y)
