@@ -1,21 +1,23 @@
 # Let's Talk About Go Types
 
-# https://carolynvs.github.io/wwg/go-types
+### http://carolynvs.com/go-types
 
 ---
 
 # Setup
-1. Make a new directory in your GOPATH for the workshop, e.g. `~/go/src/workshop`.
+1. Make a new directory in your GOPATH for the workshop, e.g. `~/go/src/geometry`.
 1. Open your favorite Go editor.
+1. Add a file named `main.go`.
+
+If you don't have Go setup on your computer, you can do the exercises on the Go Playground. Just click the link above each code sample.
 
 ---
 
 # Distance Function
 
-Create a directory named geometry, with a file named `main.go`.
+First we will write a go function that calculates distance between two points:
 
-Now we will write a go function that calculates distance between two points:
-
+https://play.golang.org/p/dxx9jIfaI_
 ```go
 package main
 
