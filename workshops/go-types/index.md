@@ -125,7 +125,7 @@ tldr: if you want to modify the struct, the receiver should be a pointer
 
 Let's make another type:
 
-https://play.golang.org/p/UUAw1OV5dM
+[Play](https://play.golang.org/p/UUAw1OV5dM)
 ```go
 type circle struct {
   x,y float64
@@ -313,4 +313,6 @@ func main() {
 }
 ```
 
-# 
+# Go Forth and Play!
+
+![gophers building stuff](https://raw.githubusercontent.com/ashleymcnamara/gophers/master/GoBuild.png)
