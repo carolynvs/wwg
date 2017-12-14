@@ -17,7 +17,7 @@ If you don't have Go setup on your computer, you can do the exercises on the Go 
 
 First we will write a go function that calculates distance between two points:
 
-https://play.golang.org/p/dxx9jIfaI_
+[Play](https://play.golang.org/p/dxx9jIfaI_)
 ```go
 package main
 
@@ -52,7 +52,7 @@ type point struct {
 
 Now change the distance function to use points.
 
-Solution: https://play.golang.org/p/9GeZBIMIQr
+[Play](https://play.golang.org/p/9GeZBIMIQr)
 
 # To OOP or not to OOP
 
@@ -84,7 +84,7 @@ We can define a structure to hold data, and provide associated functions to work
 ## Move Function
 Now let's make a function that modifies our point:
 
-https://play.golang.org/p/4wKbaIlLXV
+[Play](https://play.golang.org/p/4wKbaIlLXV)
 ```go
 func (p point) Move(dx, dy float64) {
   p.x += dx
@@ -149,7 +149,7 @@ Anyone else thing this is a bit copy/paste?
 ## Composition
 Go doesn't have inheritance, but I can compose a type using other types:
 
-https://play.golang.org/p/WHPPNw7Vko
+[Play](https://play.golang.org/p/WHPPNw7Vko)
 ```
 type circle struct {
   *point
@@ -178,7 +178,7 @@ We have a few options:
 
 OK! Now let's make _more_ types!
 
-https://play.golang.org/p/AU0uefP7Qp
+[Play](https://play.golang.org/p/AU0uefP7Qp)
 ```go
 type line struct {
   start, stop point
@@ -199,7 +199,7 @@ func (l *line) Move(dx, dy float64) {
 # Interfaces
 What if I want to be able to move anything? 🤔
 
-https://play.golang.org/p/A87Ytz8jAa
+[Play](https://play.golang.org/p/A87Ytz8jAa)
 ```go
 type shape interface {
   Move(dx, dy float64)
@@ -230,7 +230,7 @@ Yes, Go is _very_ silly. 😆
 # Built-in Interfaces
 Here's a very useful interface: `fmt.Stringer`
 
-https://play.golang.org/p/7eaXTE5FjE
+[Play](https://play.golang.org/p/7eaXTE5FjE)
 ```go
 func (p point) String() string {
   return fmt.Printf("(%s, %s)", p.x, p.y)
@@ -245,15 +245,10 @@ func main() {
 }
 ```
 
-# Casting
-_What type am I working with?_ 🤔
+# Extending Types
+You can "extend" a type from another package!
 
-sometimes you need to know what you are dealing with
-* casting
-* switch
-
-extending a type from another package
-
+[Play](https://play.golang.org/p/gM0SqPffef)
 ```go
 package main
 
@@ -262,25 +257,60 @@ import "fmt"
 type color string
 
 const (
-	  red color = "\x1b[31;1m"
-	    blue color = "\x1b[34;1m"
-    )
+	red  color = "\x1b[31;1m"
+	blue color = "\x1b[34;1m"
+)
 
-    func (c color) Println(msg string) {
-	      fmt.Printf("%s%s\n", c, msg)
-      }
+func (c color) Println(msg string) {
+	fmt.Printf("%s%s\n", c, msg)
+}
 
 func main() {
 	red.Println("hi")
 	blue.Println("bye")
 }
-
 ```
 
-best practices
-* when to use a pointer or the struct for the receiver?
-  * ease of use
-  * memory usage (stack v. heap)
-* when to define an interface?
-  * you have more than 1 thing that does the same thing
-  * saving a file to an api, to a database, to the filesystem
+This is very useful for creating enums.
+
+# Casting
+_What type am I working with?_ 🤔
+
+[Play](https://play.golang.org/p/Gte_EqrzPD)
+```go
+func main() {
+	var s shape
+	s = &point{}
+
+	p, ok := s.(*point)
+	if ok {
+		fmt.Printf("Yay! It's a point!\n%s\n", p)
+  }
+  
+  _, ok = s.(*line)
+  if !ok {
+    fmt.Println("It is NOT a line")
+  }
+}
+```
+
+Use a `switch` to check multiple types at once:
+
+[Play](https://play.golang.org/p/sC1Re3yNWf)
+```go
+func printType(s shape) {
+	switch v := s.(type) {
+	case *point:
+		fmt.Printf("I'm a point! %s\n", v)
+	case *line:
+		fmt.Printf("I'm a line! %s\n", v)
+	}
+}
+
+func main() {
+	printType(&point{1, 1})
+	printType(&line{&point{0, 0}, &point{1, 1}})
+}
+```
+
+# 
