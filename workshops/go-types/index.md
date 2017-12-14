@@ -8,8 +8,9 @@
 1. Make a new directory in your GOPATH for the workshop, e.g. `~/go/src/geometry`.
 1. Open your favorite Go editor.
 1. Add a file named `main.go`.
+1. Run your code at any time with `go run main.go`.
 
-If you don't have Go setup on your computer, you can do the exercises on the Go Playground. Just click the link above each code sample.
+If you don't have Go setup on your computer, you can do the exercises on the [Go Playground](https://play.golang.org/). Click the link above each code sample to open the code in the online Go editor.
 
 ---
 
