@@ -1,6 +1,6 @@
 # Let's Talk About Go Types
 
-### http://carolynvs.com/go-types
+<h2 style="text-align: center"><a href="http://carolynvs.com/go-types">http://carolynvs.com/go-types</a></h2>
 
 ---
 
