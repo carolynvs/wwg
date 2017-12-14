@@ -45,6 +45,7 @@ ___
 
 Let's make a type called point:
 
+[Play](https://play.golang.org/p/9GeZBIMIQr)
 ```go
 type point struct {
   x, y float64
@@ -52,8 +53,6 @@ type point struct {
 ```
 
 Now change the distance function to use points.
-
-[Play](https://play.golang.org/p/9GeZBIMIQr)
 
 # To OOP or not to OOP
 
@@ -117,8 +116,7 @@ func (p *point) Move(dx, dy float64) {
 }
 ```
 
-yay! now it works
-tldr: if you want to modify the struct, the receiver should be a pointer
+**tldr**: If you want to modify the struct, the receiver should be a pointer.
 
 ---
 
@@ -143,7 +141,7 @@ func (c *circle) Move(dx, dy float64) {
 }
 ```
 
-Anyone else thing this is a bit copy/paste?
+Anyone else tired of copying/pasting?
 
 ---
 
@@ -173,7 +171,7 @@ We have a few options:
 * Set the point when we make it
 * Use a constructor
 
---
+---
 
 ## Line
 
@@ -220,6 +218,7 @@ s.Move(2,2)
 ```
 
 _Why did I use pointers for point and line?_ 🤔
+
 **Tip**: Assign pointers to interface varibles, because most things you implement will be mutable, and will have pointer recivers.
 
 ...
