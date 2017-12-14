@@ -64,10 +64,9 @@ p2 := point {0, 4}
 distance(p1, p2)
 ```
 
-See http://spf13.com/post/is-go-object-oriented/ for a deeper debate.
+See [http://spf13.com/post/is-go-object-oriented/](http://spf13.com/post/is-go-object-oriented/) for a deeper debate.
 
-
-Is this more OOP-y?
+Is this more _"OOP-y"_?
 ```go
 p1 := point{0, 0}
 p2 := point {0, 4}
